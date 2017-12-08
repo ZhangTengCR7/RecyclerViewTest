@@ -4,13 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.zt.R;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import java.util.List;
 
 /**
  * Created by dell on 2016/8/4.
@@ -18,6 +16,7 @@ import butterknife.ButterKnife;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private List<Person> list;
+    private OnItemClickListener listener;
 
     public MyAdapter(List<Person> list) {
         this.list = list;
@@ -58,6 +57,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return list!=null?list.size():0;
     }
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.listener = onItemClickListener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClickListener(View view, int position);
+
+        void onItemLongClickListener(View view, int position);
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView id;
@@ -71,16 +80,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             name= (TextView) itemView.findViewById(R.id.name);
             num= (TextView) itemView.findViewById(R.id.phone);
         }
-    }
-
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener{
-        void onItemClickListener(View view,int position);
-        void onItemLongClickListener(View view,int position);
-    }
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
-        this.listener=onItemClickListener;
     }
 
 
