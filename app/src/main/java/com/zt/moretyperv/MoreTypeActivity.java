@@ -46,6 +46,7 @@ public class MoreTypeActivity extends AppCompatActivity implements OnRefreshList
         refreshLayout.setOnLoadmoreListener(this);
         refreshLayout.setEnableLoadmore(true);
         refreshLayout.setEnableLoadmoreWhenContentNotFull(true);
+        refreshLayout.setEnableAutoLoadmore(true);
         refreshLayout.autoRefresh();//自动刷新
     }
 
