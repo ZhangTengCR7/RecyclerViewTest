@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -25,7 +26,8 @@ import butterknife.ButterKnife;
 
 public class MoreTypeActivity extends AppCompatActivity implements OnRefreshListener, OnLoadmoreListener {
 
-
+    @Bind(R.id.toolBar)
+    Toolbar toolbar;
     @Bind(R.id.recycler)
     RecyclerView recycler;
     @Bind(R.id.refreshLayout)
@@ -38,6 +40,9 @@ public class MoreTypeActivity extends AppCompatActivity implements OnRefreshList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moretype);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("列表");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //initData();
         adapter = new MoreTypeAdapter(list);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -64,13 +69,13 @@ public class MoreTypeActivity extends AppCompatActivity implements OnRefreshList
         list.clear();
         initData();
         adapter.notifyDataSetChanged();
-        refreshLayout.finishRefresh(true);
+        refreshLayout.finishRefresh();
     }
 
     @Override
     public void onLoadmore(RefreshLayout refreshlayout) {
         initData();
         adapter.notifyDataSetChanged();
-        refreshlayout.finishLoadmore(true);
+        refreshlayout.finishLoadmore();
     }
 }
