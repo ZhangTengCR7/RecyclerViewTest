@@ -9,4 +9,9 @@
         <item name="android:listDivider">@drawable/divider_bg</item>
     </style>
 
+    <style name="asd">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
 </resources>
