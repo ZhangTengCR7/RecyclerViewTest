@@ -2,7 +2,6 @@ package com.zt.moretyperv;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +10,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.zt.BaseActivity;
 import com.zt.R;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  * Created by zhangteng on 2017/12/8.
  */
 
-public class MoreTypeActivity extends AppCompatActivity implements OnRefreshListener, OnLoadmoreListener {
+public class MoreTypeActivity extends BaseActivity implements OnRefreshListener, OnLoadmoreListener {
 
     @Bind(R.id.toolBar)
     Toolbar toolbar;

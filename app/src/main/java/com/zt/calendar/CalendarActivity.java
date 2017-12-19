@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +12,7 @@ import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
+import com.zt.BaseActivity;
 import com.zt.R;
 
 import java.util.ArrayList;
@@ -24,11 +24,10 @@ import java.util.List;
  * Created by zhangteng on 2017/12/19.
  */
 
-public class CalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends BaseActivity {
 
     MaterialCalendarView calendarView;
     TextView dateTv;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +79,4 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

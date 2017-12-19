@@ -36,4 +36,5 @@ dependencies {
     compile 'com.github.open-android:LoopViewPager:2.0.0'
 
     compile 'com.prolificinteractive:material-calendarview:1.4.3'
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
 }

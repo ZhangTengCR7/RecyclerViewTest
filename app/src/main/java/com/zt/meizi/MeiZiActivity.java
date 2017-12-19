@@ -2,7 +2,6 @@ package com.zt.meizi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +18,7 @@ import com.itheima.retrofitutils.listener.HttpResponseListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
+import com.zt.BaseActivity;
 import com.zt.R;
 
 import org.json.JSONException;
@@ -36,7 +36,7 @@ import retrofit2.Call;
  * Created by zhangteng on 2017/12/15.
  */
 
-public class MeiZiActivity extends AppCompatActivity {
+public class MeiZiActivity extends BaseActivity {
 
     @Bind(R.id.meiziRecyclerView)
     RecyclerView meiziRecyclerView;
