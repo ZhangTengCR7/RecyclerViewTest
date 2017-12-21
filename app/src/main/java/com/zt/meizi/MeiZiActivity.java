@@ -2,6 +2,7 @@ package com.zt.meizi;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -42,6 +43,8 @@ public class MeiZiActivity extends BaseActivity {
     RecyclerView meiziRecyclerView;
     @Bind(R.id.meiRefreshLayout)
     SmartRefreshLayout meiRefreshLayout;
+    @Bind(R.id.floatBtn)
+    FloatingActionButton actionButton;
     private MeiziAdapter meiziAdapter;
     private List<Meizi> list = new ArrayList<>();
     private int page = 0;
@@ -67,9 +70,17 @@ public class MeiZiActivity extends BaseActivity {
             @Override
             public void onItemClick(View view, int i) {
                 Toast.makeText(MeiZiActivity.this, i % 5 + "", Toast.LENGTH_SHORT).show();
+
             }
         });
         meiziAdapter.setHeadView(view);
+
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                meiziRecyclerView.scrollToPosition(0);
+            }
+        });
     }
 
     private void initView() {
