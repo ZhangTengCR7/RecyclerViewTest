@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,6 +25,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -124,7 +124,9 @@ public class MeiZiActivity extends BaseActivity {
         }
         List<Meizi> tempList = GsonUtils.fromJson(jsonData, new TypeToken<List<Meizi>>() {
         }.getType());
-        Log.i("zhangteng", jsonData);
+        for (Meizi meizi : tempList) {
+            meizi.setMsgNum(new Random().nextInt(100));
+        }
         list.addAll(tempList);
         meiziAdapter.notifyDataSetChanged();
         page++;
