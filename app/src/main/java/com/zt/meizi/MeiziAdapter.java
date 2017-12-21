@@ -73,7 +73,6 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
         } else {
             holder = new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meizi, parent, false));
         }
-
         return holder;
     }
 
@@ -83,15 +82,9 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
         if (getItemViewType(position) == HEAD) {
             return;
         } else {
-            if (headView == null) {
-                realPosition = position;
-                GlideUtils.loadFitCenter(context, list.get(realPosition).getUrl(), holder.iv, R.drawable.placeholder);
-                holder.badge.setBadgeNumber(list.get(realPosition).getMsgNum());
-            } else {
-                realPosition = position - 1;
-                GlideUtils.loadFitCenter(context, list.get(realPosition).getUrl(), holder.iv, R.drawable.placeholder);
-                holder.badge.setBadgeNumber(list.get(realPosition).getMsgNum());
-            }
+            realPosition = headView == null ? position : position - 1;
+            GlideUtils.loadFitCenter(context, list.get(realPosition).getUrl(), holder.iv, R.drawable.placeholder);
+            holder.badge.setBadgeNumber(list.get(realPosition).getMsgNum());
             holder.badge.setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
                 @Override
                 public void onDragStateChanged(int dragState, Badge badge, View targetView) {
