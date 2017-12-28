@@ -88,7 +88,9 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
             holder.badge.setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
                 @Override
                 public void onDragStateChanged(int dragState, Badge badge, View targetView) {
-                    list.get(realPosition).setMsgNum(0);
+                    if (dragState == STATE_SUCCEED) {
+                        list.get(realPosition).setMsgNum(0);
+                    }
                 }
             });
         }
@@ -114,6 +116,8 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.ViewHolder> 
             badge = new QBadgeView(context).bindTarget(iv);
             badge.setBadgeGravity(Gravity.TOP | Gravity.END);
             badge.setGravityOffset(0f, true);
+            badge.setBadgeTextSize(14, true);
+            badge.setBadgePadding(6, true);
 
         }
     }
