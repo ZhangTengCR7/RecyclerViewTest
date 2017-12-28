@@ -49,7 +49,8 @@ dependencies {
 
     compile 'com.prolificinteractive:material-calendarview:1.4.3'
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
-    compile 'q.rorbin:badgeview:1.1.2'
+    compile 'q.rorbin:badgeview:1.1.2'      //沉浸式状态栏
     compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 }
