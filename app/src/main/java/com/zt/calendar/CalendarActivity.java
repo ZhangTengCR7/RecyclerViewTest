@@ -120,7 +120,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         initPieChart(calendarList.size(), list.size());
     }
 
-    private void initPieChart(int size, int totle) {
+    private void initPieChart(int size, int total) {
         mChart = (PieChart) findViewById(R.id.piechart);
         mChart.setUsePercentValues(true);
         mChart.getDescription().setEnabled(false);
@@ -141,7 +141,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         mChart.setHighlightPerTapEnabled(true);
         mChart.setOnChartValueSelectedListener(this);
         mChart.setEntryLabelColor(Color.RED);//设置饼图里文字颜色  不包括百分比
-        setData(size, totle);
+        setData(size, total);
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
 
         Legend l = mChart.getLegend();
@@ -152,11 +152,11 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         l.setEnabled(true);  //是否显示解释
     }
 
-    private void setData(int size, int totle) {
+    private void setData(int size, int total) {
         ArrayList<PieEntry> entries = new ArrayList<>();
 
         entries.add(new PieEntry(size, "已出勤", 0));
-        entries.add(new PieEntry(totle - size, "没出勤", 7));
+        entries.add(new PieEntry(total - size, "没出勤", 7));
         PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setSliceSpace(1f);  //设置扇形之间的空间
         dataSet.setSelectionShift(5f);
