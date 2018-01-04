@@ -65,16 +65,19 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         calendarView.setTopbarVisible(false);
         //设置星期文字的样式
         calendarView.setWeekDayTextAppearance(R.style.asd);
+        //设置日期文字样式
+        calendarView.setDateTextAppearance(R.style.asd);
         //设置星期文字
         calendarView.setWeekDayLabels(R.array.weekLables);
         //设置不显示其他月份日期
         calendarView.setShowOtherDates(MaterialCalendarView.SHOW_NONE);
         //默认选中当天日期
         calendarView.setSelectedDate(new Date());
+
         //设置textview显示日期
         dateTv.setText(calendarView.getCurrentDate().getYear() + "-" + (calendarView.getCurrentDate().getMonth() + 1));
         calendarView.state().edit()
-                .setFirstDayOfWeek(Calendar.MONTH)
+                .setFirstDayOfWeek(Calendar.MONDAY)
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
         monthChange(2017, 11);
@@ -114,7 +117,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         }
         calendarView.removeDecorators();
         //增加日期上的小圆点、周末的背景色
-        calendarView.addDecorators(new EventDecorator(Color.GREEN, calendarList), new HighlightWeekendsDecorator());
+        calendarView.addDecorators(new EventDecorator(Color.GREEN, calendarList), new HighlightWeekendsDecorator(this));
 
 
         initPieChart(calendarList.size(), list.size());

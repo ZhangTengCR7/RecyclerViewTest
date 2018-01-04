@@ -1,5 +1,6 @@
 package com.zt.calendar;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -19,9 +20,11 @@ public class HighlightWeekendsDecorator implements DayViewDecorator {
     private static final int color = Color.parseColor("#228BC34A");
     private final Calendar calendar = Calendar.getInstance();
     private final Drawable highlightDrawable;
+    Context context;
 
-    public HighlightWeekendsDecorator() {
+    public HighlightWeekendsDecorator(Context context) {
         highlightDrawable = new ColorDrawable(color);
+        this.context = context;
     }
 
     @Override
@@ -33,6 +36,10 @@ public class HighlightWeekendsDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.setBackgroundDrawable(highlightDrawable);
+        //view.setBackgroundDrawable(highlightDrawable);
+        //view.setSelectionDrawable(highlightDrawable);
+        //view.setDaysDisabled(true);
+
+
     }
 }
