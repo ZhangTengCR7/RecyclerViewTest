@@ -2,8 +2,13 @@ package com.zt.meizi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Created by zhangteng on 2017/9/30.
@@ -43,5 +48,27 @@ public class GsonUtils {
     //JSON转换为对象-针对泛型的类型
     public static <T> T fromJson(String json, Type typeOfT) {
         return GSON.fromJson(json, typeOfT);
+    }
+
+    /**
+     * 将JSONObjec对象转换成Map-List集合
+     *
+     * @param
+     * @return
+     */
+    public static Map<String, Object> JsonToMap(String s, Type typeOfT) {
+        Map<String, Object> map = new HashMap<>();
+        JsonParser parser = new JsonParser();
+        JsonObject jsonObject = parser.parse(s).getAsJsonObject();
+        Iterator iterator = jsonObject.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Object> entry = (Map.Entry) iterator.next();
+            if (jsonObject.get(entry.getKey()).isJsonArray()) {
+                map.put(entry.getKey(), fromJson(entry.getValue().toString(), typeOfT));
+            } else {
+                map.put(entry.getKey(), fromJson(entry.getValue().toString(), Object.class));
+            }
+        }
+        return map;
     }
 }

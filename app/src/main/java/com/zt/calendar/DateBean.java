@@ -11,6 +11,16 @@ public class DateBean {
     private int day;
     private boolean flag;
 
+    public DateBean() {
+    }
+
+    public DateBean(int year, int month, int day, boolean flag) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+        this.flag = flag;
+    }
+
     public int getYear() {
         return year;
     }
@@ -41,5 +51,15 @@ public class DateBean {
 
     public void setFlag(boolean flag) {
         this.flag = flag;
+    }
+
+    @Override
+    public String toString() {
+        return "DateBean{" +
+                "year=" + year +
+                ", month=" + month +
+                ", day=" + day +
+                ", flag=" + flag +
+                '}';
     }
 }

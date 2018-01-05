@@ -9,9 +9,13 @@
         <item name="android:listDivider">@drawable/divider_bg</item>
     </style>
 
-    <style name="asd">
+    <style name="weekDay">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="Date">
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

@@ -30,8 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="#fff"
-            app:mcv_selectionColor="#aabb00"
-            app:mcv_showOtherDates="all" />
+            app:mcv_allowClickDaysOutsideCurrentMonth="true"
+            app:mcv_selectionColor="#aabb00" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,7 +44,7 @@
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/piechart"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

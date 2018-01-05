@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,20 +60,22 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
 
         //允许左右滑动
         calendarView.setPagingEnabled(true);
-
+        calendarView.clearAnimation();
         calendarView.setTileHeight(0);
         //隐藏默认title
         calendarView.setTopbarVisible(false);
         //设置星期文字的样式
-        calendarView.setWeekDayTextAppearance(R.style.asd);
+        calendarView.setWeekDayTextAppearance(R.style.weekDay);
         //设置日期文字样式
-        calendarView.setDateTextAppearance(R.style.asd);
+        calendarView.setDateTextAppearance(R.style.Date);
         //设置星期文字
         calendarView.setWeekDayLabels(R.array.weekLables);
         //设置不显示其他月份日期
-        calendarView.setShowOtherDates(MaterialCalendarView.SHOW_NONE);
+        calendarView.setShowOtherDates(MaterialCalendarView.SHOW_DEFAULTS);
         //默认选中当天日期
         calendarView.setSelectedDate(new Date());
+        //设置动态设置高度
+        calendarView.setDynamicHeightEnabled(true);
 
         //设置textview显示日期
         dateTv.setText(calendarView.getCurrentDate().getYear() + "-" + (calendarView.getCurrentDate().getMonth() + 1));
@@ -80,7 +83,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
                 .setFirstDayOfWeek(Calendar.MONDAY)
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
-        monthChange(2017, 11);
+        monthChange(2018, 0);
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
@@ -93,6 +96,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
                 dateTv.setText(date.getYear() + "-" + (date.getMonth() + 1));
                 monthChange(date.getYear(), date.getMonth());
+                Log.i("zhangteng", "1111");
             }
         });
     }
@@ -119,8 +123,7 @@ public class CalendarActivity extends BaseActivity implements OnChartValueSelect
         //增加日期上的小圆点、周末的背景色
         calendarView.addDecorators(new EventDecorator(Color.GREEN, calendarList), new HighlightWeekendsDecorator(this));
 
-
-        initPieChart(calendarList.size(), list.size());
+        //initPieChart(calendarList.size(), list.size());
     }
 
     private void initPieChart(int size, int total) {

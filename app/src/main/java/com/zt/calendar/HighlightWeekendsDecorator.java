@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.text.style.ForegroundColorSpan;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
@@ -39,7 +40,7 @@ public class HighlightWeekendsDecorator implements DayViewDecorator {
         //view.setBackgroundDrawable(highlightDrawable);
         //view.setSelectionDrawable(highlightDrawable);
         //view.setDaysDisabled(true);
-
+        view.addSpan(new ForegroundColorSpan(Color.rgb(222, 223, 226)));
 
     }
 }

@@ -33,6 +33,6 @@ public class EventDecorator implements DayViewDecorator {
     public void decorate(DayViewFacade view) {
         view.addSpan(new DotSpan(5, color));
         ;
-        view.addSpan(new RelativeSizeSpan(1.4f));
+        view.addSpan(new RelativeSizeSpan(1.2f));
     }
 }
